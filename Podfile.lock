@@ -1,0 +1,18 @@
+PODS:
+  - JTAppleCalendar (7.0.6)
+  - SpreadsheetView (0.8.0)
+  - SwiftCharts (0.6)
+
+DEPENDENCIES:
+  - JTAppleCalendar (~> 7.0)
+  - SpreadsheetView
+  - SwiftCharts (~> 0.6)
+
+SPEC CHECKSUMS:
+  JTAppleCalendar: 6a942475e33b9ad4dee0a0e14aa4c63adcf4f543
+  SpreadsheetView: 0cab683d78e4386022a23661f1c1c4745849449a
+  SwiftCharts: d8e6d60679bc982f48f8bea25cf5c1b94fcfec4f
+
+PODFILE CHECKSUM: e744b1894abb5a6cc4f3a835faffeb49f65fc770
+
+COCOAPODS: 1.3.0

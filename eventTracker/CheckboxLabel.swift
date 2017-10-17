@@ -10,12 +10,22 @@ import UIKit
 
 class CheckboxLabel: UILabel {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    // Colors
+    let uncheckedColor = UIColor.white
+    let checkedColor = UIColor(colorWithHexValue: 0xB4B4B4)
+    // Bool property
+    var isChecked: Bool = false {
+        didSet{
+            if isChecked == true {
+                self.backgroundColor = checkedColor
+            } else {
+                self.backgroundColor = uncheckedColor
+            }
+        }
     }
-    */
+    
+    override func awakeFromNib() {
+        self.isChecked = false
+    }
 
 }

@@ -11,7 +11,7 @@ import os.log
 
 // New Class for storing all the default settings
 
-class calendarDefaultSetting: NSObject, NSCoding {
+class CalendarDefaultSetting: NSObject, NSCoding {
     
     //MARK: Properties
     var defaultCalendarTitle: String?

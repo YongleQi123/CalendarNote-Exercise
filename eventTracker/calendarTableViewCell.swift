@@ -10,6 +10,8 @@ import UIKit
 
 class calendarTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var titelTextField: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

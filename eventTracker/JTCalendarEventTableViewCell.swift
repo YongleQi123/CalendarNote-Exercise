@@ -10,6 +10,8 @@ import UIKit
 
 class JTCalendarEventTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var JTEventLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

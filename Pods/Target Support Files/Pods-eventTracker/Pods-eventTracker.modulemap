@@ -1,0 +1,6 @@
+framework module Pods_eventTracker {
+  umbrella header "Pods-eventTracker-umbrella.h"
+
+  export *
+  module * { export * }
+}
