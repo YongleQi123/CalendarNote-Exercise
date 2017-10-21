@@ -35,24 +35,7 @@ class LTPTableViewCell: UITableViewCell {
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        let colorMon = labelMon.backgroundColor
-        let colorTue = labelTue.backgroundColor
-        let colorWed = labelWed.backgroundColor
-        let colorThu = labelThu.backgroundColor
-        let colorFri = labelFri.backgroundColor
-        let colorSat = labelSat.backgroundColor
-        let colorSun = labelSun.backgroundColor
         super.setHighlighted(highlighted, animated: animated)
-        
-        if(highlighted) {
-            labelMon.backgroundColor = colorMon
-            labelTue.backgroundColor = colorTue
-            labelWed.backgroundColor = colorWed
-            labelThu.backgroundColor = colorThu
-            labelFri.backgroundColor = colorFri
-            labelSat.backgroundColor = colorSat
-            labelSun.backgroundColor = colorSun
-        }
     }
     
     func initWeekDayCheckbox(event: EKEvent) {
