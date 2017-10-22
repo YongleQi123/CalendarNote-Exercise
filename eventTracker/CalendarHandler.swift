@@ -103,8 +103,7 @@ class CalendarHandler {
         }
     }
     
-    static func saveEvent(event: EKEvent) {
-        let eventStore = EKEventStore()
+    static func saveEvent(eventStore: EKEventStore, event: EKEvent) {
         do {
             try eventStore.save(event, span: .thisEvent)
         } catch let error as NSError {

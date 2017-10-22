@@ -29,6 +29,7 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
     let outsideMonthColor = UIColor(colorWithHexValue: 0x333333)
     let insideMonthColor = UIColor(colorWithHexValue: 0xB4B4B4)
     let selectedMonthColor = UIColor.white
+    let checkedCellColor = UIColor.green
     let currentDateSelectedViewColor = UIColor(colorWithHexValue: 0x4e3f5d)
     let selectedViewColorDiary = UIColor(colorWithHexValue: 0x315C69)
     let selectedViewColorEvent = UIColor(colorWithHexValue: 0xB4B4B4)
@@ -93,7 +94,7 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table view delegates
 
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -102,6 +103,22 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
         
         return title
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let date = self.dateListThisMonth[indexPath.section]
+        if let JTEvents = self.eventList[date] {
+            let myEvent = JTEvents[indexPath.row]
+            if myEvent.hasAlarms {
+                myEvent.alarms = nil
+            } else {
+                myEvent.addAlarm(EKAlarm(absoluteDate: date))
+            }
+            CalendarHandler.saveEvent(eventStore: eventStore, event: myEvent)
+        } else {
+            print("Unknown date")
+        }
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -129,8 +146,13 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
         
         let date = self.dateListThisMonth[indexPath.section]
         if let JTEvents = self.eventList[date] {
-            let eventTitle = JTEvents[(indexPath as NSIndexPath).row].title
-            cell.JTEventLabel.text = eventTitle
+            let myEvent = JTEvents[(indexPath as NSIndexPath).row]
+            if myEvent.hasAlarms {
+                cell.backgroundColor = checkedCellColor
+            } else {
+                cell.backgroundColor = nil
+            }
+            cell.JTEventLabel.text = myEvent.title
         } else {
             cell.JTEventLabel.text = "Unknown Event"
         }
@@ -260,7 +282,6 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
         }
         
         print("######### \(String(describing: validCell.selectedView.backgroundColor))")
-
     }
     
     func updateEventTableWidth() {
@@ -275,9 +296,8 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
     
     func updateCalendarHeight(completion: (_ success: Bool) -> ()) {
 
-            // Do something
-            
-            // Call completion, when finished, success or faliure
+        // Do something
+        // Call completion, when finished, success or faliure
         var success: Bool = false
         if weekMode {
             self.calendarFrameHeight.constant = 107
@@ -323,7 +343,6 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
         guard let selectedDate = self.selectedDate else { return }
         // Set up view depending on whether schedule or monthly view has been selected
         if weekMode {
-            
             UIView.animate(withDuration: 0.3, delay: 0.0, animations: {
                 self.calendarToBottom.constant = CGFloat(-107*(6-self.weekNumber!))
                 self.calendarFrameHeight.constant = 107
@@ -332,8 +351,6 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
                 self.calendarToBottom.constant = -535
                 self.calendarView.reloadData(withanchor: selectedDate, completionHandler: nil)
             })
-            
-            
         }else {
             self.calendarToBottom.constant = CGFloat(-107*(6-self.weekNumber!))
             self.calendarView.reloadData(withanchor: selectedDate){

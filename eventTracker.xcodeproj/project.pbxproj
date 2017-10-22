@@ -149,6 +149,7 @@
 				31A54DA61F21339800AF1F16 /* ViewController.swift */,
 				9B70EF6B1F35BDC1008A57D2 /* JTCalendarViewController.swift */,
 				9B6EE04A1F48367A00FB7939 /* JTCalendarEventTableViewCell.swift */,
+				9B70EF691F35BC0D008A57D2 /* CustomCell.swift */,
 				9BB55CE21F7C3F2C00FE0335 /* CalendarHandler.swift */,
 				9BCDB12D1F4A2AEF008F9632 /* CalendarDefaultSetting.swift */,
 				3186A0F01F235F42008D72E0 /* UIViewExtensions.swift */,
@@ -172,7 +173,6 @@
 				31A54DAB1F21339800AF1F16 /* Assets.xcassets */,
 				31A54DAD1F21339800AF1F16 /* LaunchScreen.storyboard */,
 				31A54DB01F21339800AF1F16 /* Info.plist */,
-				9B70EF691F35BC0D008A57D2 /* CustomCell.swift */,
 			);
 			path = eventTracker;
 			sourceTree = "<group>";
@@ -248,7 +248,7 @@
 				TargetAttributes = {
 					31A54DA01F21339800AF1F16 = {
 						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					31A54DB41F21339800AF1F16 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -527,10 +527,13 @@
 			baseConfigurationReference = 2D852D3B0181B16CC57D05FD /* Pods-eventTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = eventTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.eventTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -540,10 +543,13 @@
 			baseConfigurationReference = 671B730EB999F5CD26A46320 /* Pods-eventTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = eventTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.eventTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
