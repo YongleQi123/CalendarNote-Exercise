@@ -159,7 +159,8 @@ class LTTableViewTableViewController: UITableViewController {
             LTPDetailViewController.event = LTPs[indexPath.row]
             
         default:
-            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+            print("let us pretend everything is fine...")
+            //fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }
     
