@@ -157,10 +157,14 @@ class LTTableViewTableViewController: UITableViewController {
             }
             LTPDetailViewController.eventStore = eventStore
             LTPDetailViewController.event = LTPs[indexPath.row]
+        case "showChart":
+            //guard let LTPDetailViewController = segue.destination as? LTProjectViewController else {
+            //    fatalError("Unexpected destination: \(segue.destination)")
+            //}
+            print("do nothing")
             
         default:
-            print("let us pretend everything is fine...")
-            //fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }
     

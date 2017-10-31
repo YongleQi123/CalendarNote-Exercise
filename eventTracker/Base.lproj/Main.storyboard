@@ -253,7 +253,7 @@
                             </barButtonItem>
                             <barButtonItem title="Item" image="icon_chart" id="N7g-iC-8mX">
                                 <connections>
-                                    <segue destination="RAg-Gg-H1N" kind="show" id="uJV-Wx-D6K"/>
+                                    <segue destination="RAg-Gg-H1N" kind="show" identifier="showChart" id="uJV-Wx-D6K"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -875,7 +875,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qHa-Qp-5X2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10124" y="-1505"/>
+            <point key="canvasLocation" x="-10266" y="-1613"/>
         </scene>
     </scenes>
     <resources>

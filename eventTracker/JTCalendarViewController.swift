@@ -58,6 +58,7 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
         didSet{
             if selectedDate != nil {
                 weekNumber = self.getWeekNumber(selectedDate!)
+                print("weekNumber is \(weekNumber)")
             }
         }
     }
@@ -335,6 +336,8 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
 
     func getWeekNumberInMonth(selectedDate: Date, indateCount: Int) -> Float{
         let dayCount = Calendar.current.component(.day, from: selectedDate)
+        print("indateCount is \(indateCount)")
+        print("dayCount is \(dayCount)")
         return ceilf(Float(dayCount+indateCount)/7.00)
         
     }
@@ -518,7 +521,8 @@ class JTCalendarViewController: UIViewController,UITableViewDataSource, UITableV
     
     func getWeekNumber(_ date: Date) -> Float {
         let monthStart = calendar.date(from: calendar.dateComponents([.year, .month], from: date))
-        let indateCount = 7 - calendar.component(.weekday, from: monthStart!)
+        let weekDay = calendar.component(.weekday, from: monthStart!)
+        let indateCount = weekDay > 1 ? weekDay-2 : 6
         let dateCount = calendar.component(.day, from: date)
         return ceilf(Float(indateCount+dateCount)/7.00)
     }
