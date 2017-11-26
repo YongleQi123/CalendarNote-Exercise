@@ -11,4 +11,3 @@ event / recurring event
 a chart view which does nothing jet
 
 ## License
-Do what the fuck you want license
